@@ -17,12 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rg3-3O-0FR">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rg3-3O-0FR">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="LXf-rZ-Psf">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="LXf-rZ-Psf">
+                                        <rect key="frame" x="0.0" y="55.333332061767578" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LXf-rZ-Psf" id="E96-Ej-kyo">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
@@ -32,22 +32,26 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="q0g-pH-Gij"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="8pX-we-grZ"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rg3-3O-0FR" secondAttribute="trailing" id="4nF-T6-wpq"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rg3-3O-0FR" secondAttribute="bottom" id="Ig1-K5-8P0"/>
-                            <constraint firstItem="rg3-3O-0FR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eZx-hD-I4B"/>
-                            <constraint firstItem="rg3-3O-0FR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xPL-Xa-bH1"/>
+                            <constraint firstItem="rg3-3O-0FR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4nF-T6-wpq"/>
+                            <constraint firstItem="rg3-3O-0FR" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Ig1-K5-8P0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="rg3-3O-0FR" secondAttribute="top" id="eZx-hD-I4B"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="rg3-3O-0FR" secondAttribute="leading" id="xPL-Xa-bH1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="rg3-3O-0FR" id="KDo-id-plD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-121" y="4"/>
+            <point key="canvasLocation" x="-121.37404580152672" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>

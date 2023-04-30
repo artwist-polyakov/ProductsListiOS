@@ -8,20 +8,41 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let words = ["Apple", "Pear", "Watermelon", "Carrot", "Pickle", "Potato", "Tomato"]
+    
+    
+    @IBOutlet var tableView: UITableView!
+    
+    let words = [
+        ["Apple", "Pear", "Watermelon"],
+        ["Carrot", "Pickle", "Potato", "Tomato"]
+    ]
+    let headers = ["Fruits", "Vegetables"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        tableView.sectionHeaderHeight = 32 
     }
 
 
 }
 
+// MARK: UITableViewDataSource
+@available(iOS 14.0, *)
 extension ViewController: UITableViewDataSource {
     // Здесь будут наши методы dataSource
     
     func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let vegOrFruitArray = words[section]
+        return vegOrFruitArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return headers[section]
+    }
+
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return words.count
     }
     
@@ -32,11 +53,28 @@ extension ViewController: UITableViewDataSource {
         } else {
             cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
         }
-        cell.textLabel?.text = words[indexPath.row]
+        var content = cell.defaultContentConfiguration()
+        
+        content.text = words[indexPath.section][indexPath.row]
+        cell.contentConfiguration = content
+//        cell.selectionStyle = .gray
         return cell
     }
 
     
     
+}
+
+// MARK: UITableViewDelegate
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let alert = UIAlertController(title: nil, message: "Вы нажали на \(words[indexPath.section][indexPath.row])", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            alert.dismiss(animated: true)}
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    
+    }
 }
 

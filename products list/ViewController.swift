@@ -14,9 +14,10 @@ class ViewController: UIViewController {
     
     let words = [
         ["Apple", "Pear", "Watermelon"],
-        ["Carrot", "Pickle", "Potato", "Tomato"]
+        ["Carrot", "Pickle", "Potato", "Tomato"],
+        ["Strawberry","Raspberry", "Blackberry","Blueberry"]
     ]
-    let headers = ["Fruits", "Vegetables"]
+    let headers = ["Fruits", "Vegetables", "Ягоды"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,8 +70,10 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let alert = UIAlertController(title: nil, message: "Вы нажали на \(words[indexPath.section][indexPath.row])", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            tableView.deselectRow(at: indexPath, animated: true) // снимаем выделение
             alert.dismiss(animated: true)}
         alert.addAction(okAction)
         present(alert, animated: true)
